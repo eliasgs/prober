@@ -31,4 +31,15 @@ describe('Probe object#method', function () {
         assert.equal(speak.callCount, 1);
         assert.equal(speak.args[0], 'test');
     });
+    it('should not work after detach', function (done) {
+        var wait = probe(mod1, 'wait');
+        wait.on('call', function () {
+            done(new Error('probe still works'));
+        });
+        wait.on('callback', function () {
+            done(new Error('probe still works'));
+        });
+        wait.detach();
+        mod1.wait(function () {done();});
+    });
 });
