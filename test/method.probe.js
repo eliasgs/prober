@@ -42,4 +42,22 @@ describe('Probe object#method', function () {
         wait.detach();
         mod1.wait(function () {done();});
     });
+    it('should to change method behaviour', function () {
+        var wait = probe(mod1, 'wait').stub(function () {
+            return 'hello from stub';
+        });
+        assert.equal(mod1.wait(), 'hello from stub');
+    });
+    it('should to change callback behaviour', function () {
+        var wait = probe(mod1, 'wait').stub.callback(function (arg) {
+            assert.equal(arg, 1);
+            arguments[0] = 'hello from callback';
+        });
+        mod1.wait(function () {
+            throw new Error('callback behaviour still active');
+        });
+        wait.on('callback', function () {
+            assert.equal(wait.callback.args[0], 'hello from callback');
+        });
+    });
 });
