@@ -14,6 +14,7 @@ describe('Probe object#method', function () {
         var wait = probe(mod1, 'wait');
         wait.on('call', done);
         mod1.wait(function () {});
+        wait.detach();
     });
     it('should be posible to inspect callback on events', function (done) {
         var wait = probe(mod1, 'wait');
@@ -59,5 +60,14 @@ describe('Probe object#method', function () {
         wait.on('callback', function () {
             assert.equal(wait.callback.args[0], 'hello from callback');
         });
+    });
+    it('should return already created probe', function () {
+        probe(mod1, 'wait').detach();
+        assert.equal(mod1.wait._probe, undefined);  
+        probe(mod1, 'wait');
+        assert(mod1.wait._probe);
+        mod1.wait._probe = 'probe';
+        probe(mod1, 'wait');
+        assert.equal(mod1.wait._probe, 'probe');
     });
 });
