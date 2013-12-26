@@ -1,5 +1,5 @@
 {
-  "name": "noprobe",
+  "name": "prober",
   "version": "0.0.0",
   "description": "Inspect method call",
   "main": "index.js",
