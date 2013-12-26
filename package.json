@@ -15,7 +15,7 @@
     "test",
     "mock"
   ],
-  "author": "Elias G. Schneevoigt",
+  "author": "Elias G. Schneevoigt <eliasgs@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "mocha": "~1.13.0"
