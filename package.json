@@ -1,7 +1,7 @@
 {
   "name": "prober",
   "version": "0.0.0",
-  "description": "Inspect method call",
+  "description": "Method call inspector",
   "main": "index.js",
   "directories": {
     "test": "test"
