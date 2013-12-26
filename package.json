@@ -1,0 +1,23 @@
+{
+  "name": "noprobe",
+  "version": "0.0.0",
+  "description": "Inspect method call",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "probe",
+    "stub",
+    "test",
+    "mock"
+  ],
+  "author": "Elias G. Schneevoigt",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "mocha": "~1.13.0"
+  }
+}
